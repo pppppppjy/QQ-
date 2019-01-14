@@ -1,0 +1,22 @@
+<!-- 引入模板 -->
+<import src="query-form.wxml" />
+<import src="/template/song/song.wxml" />
+<import src="/template/public/bottom-player.wxml" />
+<!-- 引入模板 -->
+
+<!--pages/sheet/list.wxml-->
+<view class="container">
+
+  <template is="query-form" data="{{q}}" />
+
+  <scroll-view class="scroll-songs" scroll-y bindscrolltolower="morePage">
+    <view class="scroll-songs-view">
+      <template is="song-list" data="{{songs}}"/>
+    </view>
+  </scroll-view>
+  
+</view>
+
+
+<!-- 底部播放器 -->
+<template is="bottom-player" data="{{...playerSong}}"/>

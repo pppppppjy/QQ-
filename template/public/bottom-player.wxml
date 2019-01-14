@@ -1,0 +1,18 @@
+<template name="bottom-player">
+  <view class="bottom-player">
+
+     <navigator url="/pages/player/index?name={{song_name}}&mid={{song_mid}}" hover-class="none" class="bplayer-cover">
+      <image src="{{album_min || '/images/default_album.jpg'}}" mode="widthFix"></image>
+    </navigator>
+
+    <view class="bplayer-btn"  bindtap="musicTap">
+      <image data-method="play" src="/images/icon/{{paused === false ? 'stop' : 'player'}}.png"></image>
+    </view>
+
+    <navigator url="/pages/player/index?name={{song_name}}&mid={{song_mid}}" hover-class="none" class="bplayer-album">
+      <text class="substr">{{song_name || '暂无歌曲播放'}}</text>
+      <text>{{song_orig || '未知歌手'}}</text>
+    </navigator>
+
+  </view>
+</template>

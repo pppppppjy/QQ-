@@ -1,0 +1,11 @@
+/* 样式的载入 */
+@import "/template/song/song.wxss";
+@import "/template/public/bottom-player.wxss";
+/* pages/sheet/list.wxss */
+
+.scroll-songs{
+  height: calc(100vh - 50px);
+}
+.scroll-songs-view{
+  padding: 10px;
+}

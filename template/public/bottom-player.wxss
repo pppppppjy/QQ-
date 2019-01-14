@@ -1,0 +1,43 @@
+/* 底部播放器 */
+.container{
+  padding-bottom: 50px;
+}
+.bottom-player{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 5px 10px;
+  background: #fff;
+  /* box-shadow: 0 -1px 1px #eee; */
+}
+.bplayer-cover{
+  margin-right: 8px;
+  float: left;
+}
+.bplayer-cover image{
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+.bplayer-album{
+  padding-top: 3px;
+  overflow: hidden;
+}
+.bplayer-album text{
+  display: block;
+}
+.bplayer-album text:last-child{
+  font-size: 10px;
+  color: #aeaeae;
+}
+.bplayer-btn{
+  float: right;
+  margin-left: 8px;
+  padding-top: 2.5px;
+}
+.bplayer-btn image{
+  display: block;
+  width: 35px;
+  height: 35px;
+}

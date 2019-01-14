@@ -1,0 +1,63 @@
+<!-- 引入模板 -->
+<import src="/template/song/song.wxml" />
+<import src="/template/public/bottom-player.wxml" />
+<!-- 引入模板 -->
+
+<!-- 引入公共的方法 -->
+<wxs src="../../common/function.wxs" module="common"></wxs>
+<!-- 引入公共的方法 -->
+
+<!--pages/home/index.wxml-->
+<view class="container">
+
+  <!-- 头部 -->
+  <view class="header">
+    <navigator class="on" hover-class="on">推荐</navigator>
+    <navigator url="/pages/like/index" hover-class="on">歌单</navigator>
+    <navigator url="/pages/search/index" hover-class="on">搜索</navigator>
+  </view> 
+
+  <!-- banner -->
+  <view class="home-banner">
+    <swiper indicator-dots
+            autoplay
+            interval="3000"
+            indicator-color="#fff"
+            indicator-active-color="#b3d4db"
+    >
+      <swiper-item wx:for="{{banner}}" wx:for-item="bannerItem" bindtap="actionBanner" data-action="{{bannerItem}}">
+        <image src="{{bannerItem.img}}"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+    
+  <!-- 国家地区 -->
+  <view class="region-type">
+    <navigator url="{{common.deSheetUrl(regionItem)}}" wx:for="{{region}}" wx:for-item="regionItem" hover-class="none">
+      <image src="/images/icon/music.png" mode="widthFix"></image>
+      <text>{{regionItem.name}}</text>
+    </navigator>
+  </view>
+
+  <!-- 热门歌曲 -->
+  <view class="home-menu">
+
+    <view class="hmenu-item" wx:for="{{sheets}}" wx:for-item="sheet">
+      
+      <navigator url="{{common.deSheetUrl(sheet)}}" class="hmenu-head" hover-class='none'>
+        <image src="/images/icon/enum.png"></image>
+        <text>{{sheet.name}}</text>
+      </navigator>
+
+      <view class="hmenu-body">
+
+        <template is="song-list" data="{{...sheet}}"/>
+
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 底部播放器 -->
+<template is="bottom-player" data="{{...playerSong}}"/>

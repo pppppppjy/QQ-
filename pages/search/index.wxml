@@ -1,0 +1,23 @@
+<!-- 引入模板 -->
+<import src="query-form.wxml" />
+<import src="/template/public/bottom-player.wxml" />
+<!-- 引入模板 -->
+
+<!--pages/search/index.wxml-->
+<view class="container">
+
+  <template is="query-form" data="{{q}}" />
+
+  <view class="search-history">
+    <view class="history-item" wx:for="{{history}}">
+      <image src="/images/icon/history.png"> </image>
+      <navigator url="list?q={{item.name}}" hover-class="none" class="substr">{{item.name}}</navigator>
+      <image src="/images/icon/close.png" data-song="{{item.name}}" bindtap="del"> </image>
+    </view>
+  </view>
+
+</view>
+
+
+<!-- 底部播放器 -->
+<template is="bottom-player" data="{{...playerSong}}"/>

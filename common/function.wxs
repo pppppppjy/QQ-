@@ -1,0 +1,26 @@
+/* 只能写es5 */ 
+
+//返回一个歌单的跳转url
+function deSheetUrl(sheet){
+
+  return "/pages/sheet/list?id=" + sheet.id + "&name=" + sheet.name;
+}
+
+//数字转歌曲进度时间字符串
+function toSongTime(n){
+
+  //判断是否传递值 235.6361 
+  n =  n || 0;
+
+  return ~~(n / 60) + ":" + (function(s){
+
+      s = Math.ceil(s);
+
+    return s <= 9 ? "0"+s : s;
+  })(n % 60);
+}
+
+module.exports = {
+  deSheetUrl: deSheetUrl,
+  toSongTime: toSongTime
+}

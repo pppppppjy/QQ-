@@ -1,0 +1,91 @@
+<wxs src="../../common/function.wxs" module="common" />
+
+<!--pages/player/index.wxml-->
+<view class="container">
+
+  <!-- 背景图 -->
+  <image class="player-bg" src="{{playerSong.album_big}}"></image>
+
+  <!-- 歌曲信息 -->
+  <view class="player-tab">
+    <swiper class="player-swiper">
+
+      <!-- 歌曲封面 -->
+      <swiper-item >
+        <view class="player-cover">
+          <image class="play {{playerSong.paused === false || 'paused'}}" src="{{playerSong.album_big}}"></image>
+        </view>
+      </swiper-item>
+
+      <!-- 歌词 -->
+      <swiper-item>
+        <view class="player-lyric">
+          <swiper vertical
+                  skip-hidden-item-layout
+                  display-multiple-items="{{multiple}}"
+                  duration="{{duration}}"
+                  current="{{current}}"
+          >
+            <swiper-item wx:for="{{lyrics}}" wx:key="millisecond" class="{{index === currentIndex && 'on'}}">
+             {{item.text}}
+            </swiper-item>
+          </swiper>
+        </view>
+      </swiper-item>
+
+    </swiper>
+  </view>
+
+  <!-- 底部菜单 -->
+  <view class="player-bottom">
+
+    <view class="player-menu" bindtap="musicTap">
+      <image src="/images/icon/{{like ? 'like' : 'like-empty'}}.png" data-method="like"></image>
+      <!-- <image src="/images/icon/download.png" data-method="download"></image> -->
+      <image src="/images/icon/wechar.png" data-method="chat"></image>
+      <image src="/images/icon/more.png"  catchtap='showPsong'></image>
+    </view>
+
+    <view class="player-slider">
+      <text>{{common.toSongTime(playerSong.currentTime)}}</text>
+      <slider 
+              selected-color="#b3d4db"
+              block-size="12"
+              step="1"
+              value="{{~~playerSong.currentTime || 0}}"
+              max="{{~~playerSong.duration || 0}}"
+              bindchange="setSeek"
+      />
+      <text>{{common.toSongTime(playerSong.duration)}}</text>
+    </view>
+
+    <view class="player-menu player-btn" bindtap="musicTap">
+      <image src="/images/icon/prev.png" data-method="prev"></image>
+      <image src="/images/icon/{{playerSong.paused === false ? 'stop' : 'player'}}.png" data-method="play"></image>
+      <image src="/images/icon/next.png" data-method="next"></image>
+    </view>
+
+  </view>
+
+  <!-- 呼出菜单 -->
+  <view class="psong-view {{psongshow && 'on'}}">
+    <view class="psong-header">
+      正在播放（{{playerSongs.length}}）
+      <image bindtap="showPsong" src="/images/icon/close-1.png"></image>
+    </view>
+
+    <view class="psong-list" bindtap="onPlayer" data-songs="{{playerSongs}}">
+      <view class="psong-item" wx:for="{{playerSongs}}">
+        <view class="substr" data-song="{{item}}">
+          {{item.song_name}}
+          <text data-song="{{item}}"> - {{item.song_orig}}</text>
+        </view>
+        <image catchtap="delPlayerSongs"
+               data-song="{{item}}"
+               src="/images/icon/close.png"
+        ></image>
+      </view>
+    </view>
+  </view>
+
+</view>

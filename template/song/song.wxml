@@ -1,0 +1,14 @@
+<!-- 歌曲的列表 -->
+<template name="song-list">
+  <view class="song-list song-view3" bindtap="onPlayer" data-songs="{{songs}}">
+    <template is="song-view" wx:for="{{songs}}" wx:key="{{song_mid}}" wx:for-item="song" data="{{song}}" />
+  </view>
+</template>
+
+<!-- 歌曲的视图 -->
+<template name="song-view">
+  <view class="song" data-song="{{song}}">
+    <image binderror="imgLoadError" src="{{song.album_min}}" mode="widthFix" data-song="{{song}}"></image>
+    <text data-song="{{song}}">{{song.song_name}}</text>
+  </view>
+</template>

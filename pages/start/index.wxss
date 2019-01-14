@@ -1,0 +1,29 @@
+/* pages/start/index.wxss */
+page{
+  background: #b3d4db;
+}
+.container{
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.start-view {
+  text-align: center;
+}
+.start-view image{
+  display: block;
+  margin-bottom: 300rpx;
+  width: 300rpx;
+  height: 300rpx;
+}
+.start-view button{
+  display: inline-block;
+  background: transparent;
+  border: 1px solid #fafafa;
+  color: #fafafa;
+  font-size: 14px;
+}
+.start-view button::after{
+  border: none;
+}

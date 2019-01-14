@@ -1,0 +1,42 @@
+<!-- 引入模板 -->
+<import src="/template/public/bottom-player.wxml" />
+<!-- 引入模板 -->
+
+<!--pages/like/index.wxml-->
+<view class="container">
+
+  <!-- 头部 -->
+  <view class="like-head">
+    <image class="like-bg" mode="widthFix" binderror="coverError" src="{{cover}}"></image>
+    <view class="like-head-view">
+      <image class="like-cover" src="{{cover}}"></image>
+      <view class="like-des">
+        <text class="like-title">我喜欢的音乐</text>
+        <view class="user-inline">
+          <image src="{{userInfo.avatarUrl}}"></image>
+          <text>{{userInfo.nickName}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 列表页 -->
+  <view class="like-body">
+    <view class="like-list-head">
+      我喜欢的音乐(共{{list.length}}首)
+    </view>
+    <view class="like-list" bindtap="onPlayer" data-songs="{{list}}">
+      <view class="like-item" wx:for="{{list}}">
+        <text class="item-num">{{index + 1}}</text>
+        <view class="item-song">
+          <text class="substr" data-song="{{item}}">{{item.song_name}}</text>
+          <text data-song="{{item}}">{{item.song_orig}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 底部播放器 -->
+<template is="bottom-player" data="{{...playerSong}}"/>

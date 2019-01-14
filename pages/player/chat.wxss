@@ -1,0 +1,94 @@
+/* pages/player/chat.wxss */
+.container{}
+.chat-head{
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+.chat-song{
+  display: flex;
+}
+.chat-song image{
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+}
+.chat-song-des{
+  flex: 1;
+  padding-left: 12px;
+  padding-top: 10px;
+  overflow: hidden;
+}
+.chat-song-des text{
+  display: block;
+  font-size: 16px;
+}
+.chat-song-des text:last-child{
+  font-size: 14px;
+  color: #aeaeae;
+}
+.chat-body{
+  height: calc(100vh - 161px);
+  overflow: hidden;
+}
+.chat-list{
+  padding: 10px 0;
+}
+.chat-item{
+  padding: 5px 0 10px 10px;
+}
+
+.user-inline{
+  display: flex;
+  align-items: center;
+  padding-bottom: 5px;
+}
+.user-inline image{
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+}
+.user-des{
+  flex: 1;
+  padding-left: 5px;
+  overflow: hidden;
+}
+.user-des text{
+  display: block;
+}
+.user-des text:last-child{
+  font-size: 10px;
+  color: #aeaeae;
+}
+.chat-info{
+  margin-left: 35px;
+  padding-bottom: 5px;
+  padding-right: 5apx;
+  line-height: 1.6;
+  border-bottom: 1px solid #eee;
+}
+
+.chat-form{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom : 0;
+  padding: 5px;
+  background: #fff;
+}
+.chat-form button{
+  float: right;
+  padding: 0 8px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  background: transparent;
+}
+.chat-form button::after{
+  border: none;
+}
+.chat-form input{
+  box-sizing: border-box;
+  height: 30px;
+  padding: 0 8px;
+  border-bottom: 1px solid #eee;
+}

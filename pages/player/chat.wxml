@@ -1,0 +1,37 @@
+<!--pages/player/chat.wxml-->
+<view class="container">
+  <view class="chat-head">
+    <view class="chat-song">
+      <image src="{{song.album_min}}"></image>
+      <view class="chat-song-des">
+        <text class="substr">{{song.song_name}}</text>
+        <text>{{song.song_orig}}</text>
+      </view>
+    </view>
+  </view>
+
+  <scroll-view class="chat-body" scroll-y bindscrolltolower="moreChat">
+
+    <view class="chat-list">
+      <view class="chat-item" wx:for="{{chatList}}">
+        <view class="user-inline">
+          <image src="{{item.userInfo.avatarUrl}}"></image>
+          <view class="user-des">
+            <text>{{item.userInfo.nickName}}</text>
+            <text>{{item.time}}</text>
+          </view>
+        </view>
+        <view class="chat-info">
+         {{item.chat}}
+        </view>
+      </view>
+    </view>
+
+  </scroll-view>
+
+  <form class="chat-form" bindsubmit="addChat">
+    <button form-type='submit'>发送</button>
+    <input name="chat" value="{{chat}}" />
+  </form>
+
+</view>

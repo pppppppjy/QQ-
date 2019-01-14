@@ -1,0 +1,83 @@
+/* 样式的载入 */
+@import "/template/public/bottom-player.wxss";
+/* pages/like/index.wxss */
+.like-head{
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+  margin-bottom: -75rpx;
+  background: rgba(0, 0, 0, .2)
+}
+.like-bg{
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  filter: blur(20px);
+  width: 100%;
+}
+.like-head-view{
+  padding: 100rpx 0 150rpx 50rpx;
+  display: flex;
+}
+.like-cover{
+  width: 250rpx;
+  height: 250rpx;
+}
+.like-des{
+  color: #fff;
+  padding-left: 10px;
+}
+.like-title{
+  display: block;
+  padding: 5px 0 8px;
+  font-size: 16px;
+}
+.user-inline{
+  display: flex;
+  align-items: center;
+}
+.user-inline image{
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+}
+.user-inline text{
+  font-size: 12px;
+}
+.like-body{
+  background: #fff;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.like-list-head{
+  padding: 15px;
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+}
+.like-list{
+  padding-bottom: 20px;
+}
+.like-item{
+  display: flex;
+  padding-top: 10px;
+}
+.item-num{
+  width: 50px;
+  padding-top: 8px;
+  text-align: center;
+}
+.item-song{
+  flex: 1;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+  overflow: hidden;
+}
+.item-song text{
+  display: block;
+}
+.item-song text:last-child{
+  font-size: 10px;
+  color: #aeaeae;
+}

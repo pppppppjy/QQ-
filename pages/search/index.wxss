@@ -1,0 +1,24 @@
+/* 样式的载入 */
+@import "/template/public/bottom-player.wxss";
+@import "./query-form.wxss";
+ 
+/* pages/search/index.wxss */
+.search-history{
+  padding: 20px 10px 0;
+}
+.history-item{
+  display: flex;
+}
+.history-item + .history-item{
+  margin-top: 15px;
+}
+.history-item image{
+  width: 25px;
+  height: 25px;
+}
+.history-item navigator{
+  flex: 1;
+  padding-bottom: 5px;
+  line-height: 25px;
+  border-bottom: 1px solid #eee;
+}
